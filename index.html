@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claw導入パートナー by KMST | 補助金活用でAIエージェント導入を実質負担ゼロに</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Noto Sans JP', sans-serif; color: #1f2937; line-height: 1.8; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; }
+
+/* Utility */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 80px 0; }
+.section-gray { background: #f9fafb; }
+.section-title { text-align: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; color: #1a56db; }
+.section-subtitle { text-align: center; font-size: 1rem; color: #6b7280; margin-bottom: 48px; }
+.highlight { color: #f97316; }
+.highlight-blue { color: #1a56db; }
+.big-number { font-size: 2.8rem; font-weight: 900; line-height: 1.2; }
+
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  background: #f97316;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+}
+.cta-btn:hover {
+  background: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+}
+
+/* ============ HERO ============ */
+.hero {
+  background: linear-gradient(135deg, #1a56db 0%, #1e40af 50%, #1e3a8a 100%);
+  color: #fff;
+  padding: 100px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero h1 .zero { color: #fbbf24; font-size: 2.8rem; }
+.hero p {
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin: 0 auto 36px;
+  opacity: 0.92;
+  line-height: 1.9;
+}
+.hero .cta-btn { font-size: 1.2rem; padding: 18px 48px; }
+
+/* ============ PROBLEMS ============ */
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.problem-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: box-shadow 0.3s;
+}
+.problem-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.problem-icon { font-size: 2.4rem; margin-bottom: 16px; }
+.problem-card p { font-size: 0.95rem; color: #4b5563; }
+
+/* ============ SOLUTIONS ============ */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+.solution-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 28px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  border-top: 4px solid #1a56db;
+}
+.solution-card .number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: #1a56db;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+.solution-card h3 { font-size: 1.2rem; margin-bottom: 12px; font-weight: 700; }
+.solution-card p { font-size: 0.92rem; color: #6b7280; line-height: 1.8; }
+.solution-card .badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+
+/* ============ SERVICE LINES ============ */
+.layer-section { margin-bottom: 48px; }
+.layer-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a56db;
+  margin-bottom: 20px;
+  padding-left: 16px;
+  border-left: 4px solid #1a56db;
+}
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.plan-card {
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.plan-card:hover { border-color: #1a56db; box-shadow: 0 4px 16px rgba(26,86,219,0.1); }
+.plan-card.featured { border-color: #1a56db; background: linear-gradient(180deg, #eff6ff 0%, #fff 100%); }
+.plan-name { font-size: 0.9rem; font-weight: 700; color: #6b7280; margin-bottom: 8px; text-transform: uppercase; }
+.plan-price { font-size: 2rem; font-weight: 900; color: #1f2937; }
+.plan-price span { font-size: 0.9rem; font-weight: 400; color: #9ca3af; }
+.plan-desc { font-size: 0.85rem; color: #6b7280; margin-top: 8px; }
+
+/* ============ STARTER PACK ============ */
+.starter-pack {
+  background: linear-gradient(135deg, #1e3a8a, #1a56db);
+  color: #fff;
+  border-radius: 20px;
+  padding: 48px 36px;
+  text-align: center;
+}
+.starter-pack h2 { font-size: 1.6rem; margin-bottom: 8px; }
+.starter-pack .total-before {
+  font-size: 1.3rem;
+  text-decoration: line-through;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+.starter-pack .total-after {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #fbbf24;
+  margin-bottom: 8px;
+}
+.starter-pack .total-label { font-size: 0.95rem; opacity: 0.85; margin-bottom: 32px; }
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.breakdown-item {
+  background: rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 20px 16px;
+  backdrop-filter: blur(4px);
+}
+.breakdown-item .label { font-size: 0.85rem; opacity: 0.8; margin-bottom: 4px; }
+.breakdown-item .amount { font-size: 1.3rem; font-weight: 700; }
+.breakdown-item .subsidy { font-size: 0.8rem; color: #fbbf24; margin-top: 4px; }
+.starter-arrow { font-size: 2rem; margin: 16px 0; }
+
+/* ============ TIMELINE ============ */
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #dbeafe;
+  border-radius: 2px;
+}
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  position: relative;
+}
+.timeline-dot {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background: #1a56db;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  z-index: 1;
+  text-align: center;
+  line-height: 1.2;
+}
+.timeline-content {
+  margin-left: 20px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  flex: 1;
+}
+.timeline-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.timeline-content p { font-size: 0.88rem; color: #6b7280; }
+
+/* ============ STRENGTHS ============ */
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+.strength-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+.strength-icon { font-size: 2rem; flex-shrink: 0; }
+.strength-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.strength-card p { font-size: 0.88rem; color: #6b7280; }
+
+/* ============ FAQ ============ */
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 24px 0;
+}
+.faq-q {
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.faq-q::before { content: 'Q'; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #1a56db; color: #fff; border-radius: 50%; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; }
+.faq-a {
+  margin-top: 12px;
+  padding-left: 44px;
+  font-size: 0.92rem;
+  color: #4b5563;
+  line-height: 1.9;
+}
+
+/* ============ CTA SECTION ============ */
+.cta-section {
+  background: linear-gradient(135deg, #1a56db, #1e3a8a);
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+}
+.cta-section h2 { font-size: 2rem; font-weight: 900; margin-bottom: 12px; }
+.cta-section p { opacity: 0.9; margin-bottom: 40px; }
+.form-card {
+  background: #fff;
+  color: #1f2937;
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-card h3 { text-align: center; font-size: 1.2rem; margin-bottom: 24px; color: #1a56db; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 6px; }
+.form-group label .required { color: #ef4444; font-size: 0.75rem; margin-left: 4px; }
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1a56db;
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-submit { text-align: center; margin-top: 28px; }
+.form-submit .cta-btn { width: 100%; max-width: 360px; font-size: 1.1rem; }
+.cta-phone { margin-top: 24px; font-size: 1rem; }
+.cta-phone a { font-size: 1.4rem; font-weight: 900; color: #fbbf24; }
+
+/* ============ FOOTER ============ */
+.footer {
+  background: #111827;
+  color: #9ca3af;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 2;
+}
+.footer strong { color: #fff; }
+
+/* ============ NAV ============ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  padding: 12px 0;
+}
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #1a56db;
+}
+.nav-cta {
+  background: #f97316;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background 0.3s;
+}
+.nav-cta:hover { background: #ea580c; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .hero { padding: 80px 0 60px; }
+  .hero h1 { font-size: 1.6rem; }
+  .hero h1 .zero { font-size: 1.9rem; }
+  .hero p { font-size: 0.92rem; }
+  .section { padding: 56px 0; }
+  .section-title { font-size: 1.4rem; }
+  .big-number { font-size: 2rem; }
+  .solutions-grid { grid-template-columns: 1fr; }
+  .plans-grid { grid-template-columns: 1fr; }
+  .breakdown-grid { grid-template-columns: 1fr; }
+  .starter-pack { padding: 32px 20px; }
+  .starter-pack .total-after { font-size: 2.4rem; }
+  .strengths-grid { grid-template-columns: 1fr; }
+  .form-card { padding: 28px 20px; }
+  .cta-section h2 { font-size: 1.5rem; }
+  .timeline::before { left: 24px; }
+  .timeline-dot { width: 48px; height: 48px; font-size: 0.65rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-logo">Claw導入パートナー <span style="font-weight:400;font-size:0.8rem;color:#6b7280;">by KMST</span></div>
+    <a href="#contact" class="nav-cta">無料相談を予約する</a>
+  </div>
+</nav>
+
+<!-- 1. Hero -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-badge">Claw導入パートナー by KMST</div>
+    <h1>話題のAIエージェント OpenClaw、<br>補助金活用で<span class="zero">"実質負担ゼロ"</span>導入</h1>
+    <p>導入設計 × セキュリティ × AI研修を一気通貫でサポート。<br>年間143社の補助金支援実績を持つKMSTが、御社のAIエージェント導入を成功に導きます。</p>
+    <a href="#contact" class="cta-btn">無料相談を予約する</a>
+  </div>
+</section>
+
+<!-- 2. Problems -->
+<section class="section" id="problems">
+  <div class="container">
+    <h2 class="section-title">こんなお悩みありませんか？</h2>
+    <p class="section-subtitle">多くの中小企業が同じ壁にぶつかっています</p>
+    <div class="problems-grid">
+      <div class="problem-card">
+        <div class="problem-icon">🔒</div>
+        <p>OpenClawに興味があるが、<strong>セキュリティが心配</strong></p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">👤</div>
+        <p>導入したいが、<strong>社内にIT人材がいない</strong></p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">💰</div>
+        <p><strong>費用対効果が見えず</strong>、投資に踏み切れない</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📚</div>
+        <p>導入しても<strong>社員が使いこなせるか</strong>不安</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Solutions -->
+<section class="section section-gray" id="solutions">
+  <div class="container">
+    <h2 class="section-title">3つの武器で解決します</h2>
+    <p class="section-subtitle">KMSTだから実現できるトータルサポート</p>
+    <div class="solutions-grid">
+      <div class="solution-card">
+        <div class="number">1</div>
+        <h3>補助金・助成金で<br><span class="highlight">実質負担ゼロ</span></h3>
+        <p>デジタル化・AI導入に使える各種補助金を最大限活用。最大4/5（80%）の補助率で、導入コストを大幅に削減します。</p>
+        <div class="badge">最大4/5補助</div>
+      </div>
+      <div class="solution-card">
+        <div class="number">2</div>
+        <h3>助成金対応の<br><span class="highlight">研修プログラム</span></h3>
+        <p>人材開発支援助成金を活用し、75%の研修費用が助成されます。研修を受けるだけで実質プラスになるスキームを構築。</p>
+        <div class="badge">75%助成 &mdash; 実質プラス</div>
+      </div>
+      <div class="solution-card">
+        <div class="number">3</div>
+        <h3>セキュリティ設計まで<br><span class="highlight">一気通貫</span></h3>
+        <p>CVE対策、Tailscale+WAF構成、SOUL.md保護、HITL承認ゲートまで、企業向けセキュリティを設計段階から組み込みます。</p>
+        <div class="badge">CVE対策・HITL承認ゲート</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Service Lines -->
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="section-title">3つのサービスライン</h2>
+    <p class="section-subtitle">導入から運用まで、必要に応じて選べるメニュー</p>
+
+    <div class="layer-section">
+      <h3 class="layer-title">Layer 1：導入支援</h3>
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div class="plan-name">ライト</div>
+          <div class="plan-price"><span class="big-number">30</span><span>万円</span></div>
+          <p class="plan-desc">最低限の環境構築と基本設定</p>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-name">スタンダード</div>
+          <div class="plan-price"><span class="big-number">80</span><span>万円</span></div>
+          <p class="plan-desc">セキュリティ設計込みの標準導入</p>
+        </div>
+        <div class="plan-card">
+          <div class="plan-name">プレミアム</div>
+          <div class="plan-price"><span class="big-number">150</span><span>万円</span></div>
+          <p class="plan-desc">カスタマイズ設計・全社展開支援</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer-section">
+      <h3 class="layer-title">Layer 2：月額運用サポート</h3>
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div class="plan-name">ベーシック</div>
+          <div class="plan-price"><span class="big-number">5</span><span>万円/月</span></div>
+          <p class="plan-desc">メールサポート・月次レポート</p>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-name">スタンダード</div>
+          <div class="plan-price"><span class="big-number">15</span><span>万円/月</span></div>
+          <p class="plan-desc">チャットサポート・週次MTG</p>
+        </div>
+        <div class="plan-card">
+          <div class="plan-name">プレミアム</div>
+          <div class="plan-price"><span class="big-number">30</span><span>万円/月</span></div>
+          <p class="plan-desc">専任担当・即時対応・改善提案</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer-section">
+      <h3 class="layer-title">Layer 3：AI研修</h3>
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div class="plan-name">経営者向け</div>
+          <div class="plan-price"><span class="big-number">8</span><span>h</span></div>
+          <p class="plan-desc">AI戦略・意思決定フレームワーク</p>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-name">管理職向け</div>
+          <div class="plan-price"><span class="big-number">16</span><span>h</span></div>
+          <p class="plan-desc">業務設計・チーム運用・KPI管理</p>
+        </div>
+        <div class="plan-card">
+          <div class="plan-name">現場担当者向け</div>
+          <div class="plan-price"><span class="big-number">24</span><span>h</span></div>
+          <p class="plan-desc">実践操作・プロンプト設計・活用術</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Starter Pack -->
+<section class="section section-gray" id="starter">
+  <div class="container">
+    <div class="starter-pack">
+      <h2>🚀 導入スターターパック</h2>
+      <p style="opacity:0.8;margin-bottom:24px;">導入支援＋研修＋運用サポートをまとめた特別パッケージ</p>
+      <div class="total-before">総額 240万円</div>
+      <div class="total-after">約 4万円</div>
+      <div class="total-label">補助金・助成金活用後の顧客実質負担</div>
+
+      <div class="breakdown-grid">
+        <div class="breakdown-item">
+          <div class="label">導入支援（スタンダード）</div>
+          <div class="amount">80万円</div>
+          <div class="subsidy">→ 補助金で最大4/5補助</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="label">月額運用サポート × 6ヶ月</div>
+          <div class="amount">90万円</div>
+          <div class="subsidy">→ 補助金で最大4/5補助</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="label">AI研修（管理職+現場）</div>
+          <div class="amount">70万円</div>
+          <div class="subsidy">→ 助成金で75%助成</div>
+        </div>
+      </div>
+
+      <div class="starter-arrow">↓</div>
+      <p style="font-size:1.1rem;font-weight:700;margin-bottom:24px;">補助金＋助成金活用で <span style="color:#fbbf24;font-size:1.5rem;">実質負担 約4万円</span></p>
+      <a href="#contact" class="cta-btn" style="background:#fbbf24;color:#1e3a8a;">今すぐ無料相談する</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Timeline -->
+<section class="section" id="flow">
+  <div class="container">
+    <h2 class="section-title">導入フロー</h2>
+    <p class="section-subtitle">最短6週間で本番運用を開始</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">Week<br>0</div>
+        <div class="timeline-content">
+          <h4>契約・ヒアリング</h4>
+          <p>現状の業務課題と目標をヒアリング。補助金申請の準備も同時進行します。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">Week<br>1-2</div>
+        <div class="timeline-content">
+          <h4>環境構築</h4>
+          <p>OpenClawのインストール、セキュリティ設計（Tailscale+WAF）、SOUL.md設定を行います。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">Week<br>3</div>
+        <div class="timeline-content">
+          <h4>管理職研修</h4>
+          <p>AI戦略と業務設計の16時間研修。管理職がAI活用の旗振り役になります。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">Week<br>4-5</div>
+        <div class="timeline-content">
+          <h4>現場担当者研修</h4>
+          <p>実践的な24時間研修。プロンプト設計から日常業務への組み込みまでカバー。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">Week<br>6〜</div>
+        <div class="timeline-content">
+          <h4>月額運用サポート開始</h4>
+          <p>専任担当がつき、活用状況のモニタリングと継続的な改善を支援します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Strengths -->
+<section class="section section-gray" id="strengths">
+  <div class="container">
+    <h2 class="section-title">なぜKMSTか</h2>
+    <p class="section-subtitle">私たちが選ばれる5つの理由</p>
+    <div class="strengths-grid">
+      <div class="strength-card">
+        <div class="strength-icon">🏆</div>
+        <div>
+          <h4>年間<span class="highlight">143社</span>・採択率<span class="highlight">80%超</span>の実績</h4>
+          <p>補助金・助成金の申請支援で圧倒的な採択率を誇ります。</p>
+        </div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon">🤖</div>
+        <div>
+          <h4>自社でAIエージェントを活用する<span class="highlight">実践力</span></h4>
+          <p>3名で143件を処理する生産性。机上の空論ではない実践知を提供します。</p>
+        </div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon">🎯</div>
+        <div>
+          <h4><span class="highlight">完全成功報酬</span>モデルの実績</h4>
+          <p>採択されなければ費用はかかりません。リスクゼロで挑戦できます。</p>
+        </div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon">✅</div>
+        <div>
+          <h4>IT導入補助金 <span class="highlight">公式認定</span>支援事業者</h4>
+          <p>申請支援事業者として正式に認定。スムーズな補助金申請を実現します。</p>
+        </div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon">🌏</div>
+        <div>
+          <h4>マレーシア×香川の<span class="highlight">2拠点経営</span></h4>
+          <p>グローバル視点とコスト最適化を両立。お客様への還元を最大化します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="section-title">よくあるご質問</h2>
+    <p class="section-subtitle">お客様からよくいただくご質問にお答えします</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">OpenClawとは何ですか？</div>
+        <div class="faq-a">OpenClawは、GitHubで25万スターを獲得しているオープンソースのAIエージェントです。自然言語で指示を出すだけで、コード作成やファイル操作、情報検索などを自律的に実行します。企業の生産性を飛躍的に向上させるツールとして世界中で注目されています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">セキュリティは大丈夫ですか？</div>
+        <div class="faq-a">KMSTの導入支援では、CVE（脆弱性）対策済みの環境構築に加え、Tailscale+WAFによるネットワーク保護、SOUL.mdによるAIの行動制御、HITL（Human-in-the-Loop）承認ゲートなど、多層的なセキュリティ設計を標準で組み込みます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">本当に実質負担ゼロになりますか？</div>
+        <div class="faq-a">デジタル化・AI導入向けの補助金（最大4/5補助）と人材開発支援助成金（75%助成）を組み合わせることで、お客様の実質負担を最小限に抑えることが可能です。スターターパックの場合、総額240万円に対して実質負担は約4万円です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">研修だけの依頼は可能ですか？</div>
+        <div class="faq-a">はい、可能です。AI研修のみのご依頼も承っております。経営者向け（8h）、管理職向け（16h）、現場担当者向け（24h）の各コースを単独でご利用いただけます。人材開発支援助成金の対象にもなります。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">どのくらいで導入できますか？</div>
+        <div class="faq-a">ライトプラン（環境構築のみ）であれば最短1日で導入可能です。研修を含むスタンダードプランの場合、標準で6週間のスケジュールとなります。お客様の状況に合わせて柔軟に調整いたします。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CTA / Contact -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>まずは無料相談から</h2>
+    <p>補助金の活用可否も含め、貴社に最適なプランをご提案します</p>
+    <div class="form-card">
+      <h3>無料相談フォーム</h3>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label>会社名<span class="required">必須</span></label>
+          <input type="text" name="company" placeholder="株式会社〇〇" required>
+        </div>
+        <div class="form-group">
+          <label>お名前<span class="required">必須</span></label>
+          <input type="text" name="name" placeholder="山田 太郎" required>
+        </div>
+        <div class="form-group">
+          <label>メールアドレス<span class="required">必須</span></label>
+          <input type="email" name="email" placeholder="example@company.co.jp" required>
+        </div>
+        <div class="form-group">
+          <label>電話番号</label>
+          <input type="tel" name="phone" placeholder="090-1234-5678">
+        </div>
+        <div class="form-group">
+          <label>ご相談内容</label>
+          <textarea name="message" placeholder="気になること、現在の課題など自由にご記入ください"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="cta-btn">無料相談を送信する</button>
+        </div>
+      </form>
+    </div>
+    <div class="cta-phone" style="margin-top:32px;">
+      <p>お電話でのご相談もお気軽に</p>
+      <a href="tel:0875-56-XXXX" style="color:#fbbf24;font-size:1.4rem;font-weight:900;">📞 0875-56-XXXX</a>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Footer -->
+<footer class="footer">
+  <div class="container">
+    <p><strong>株式会社KMST</strong></p>
+    <p>〒767-0011 香川県三豊市高瀬町下麻1258-1</p>
+    <p>代表取締役 鎌倉匠汰</p>
+    <p style="margin-top:16px;font-size:0.75rem;">&copy; 2026 KMST Inc. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
